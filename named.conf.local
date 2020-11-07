@@ -1,0 +1,24 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "exapmle.com"{
+	type master;
+	file "db.exapmle.com";
+};
+
+
+zone "service.com"{
+	type master;
+	file "db.service.com"
+	allow-update {key "service.com.";};	
+};
+
+key "service.com."{
+	algorithm RSASHA256;
+	secret "AwEAAbnGGDRitVoB4w3LGhRBEcFZKGi5Z2tVkOU63ezroOX0h+kL2zHN vFSvodx1POz3oyqosBm9bABly+Vo18UUcHIaUh/Mir744sZpLSvHciWx 6MeVcKjDS6HxGStljn+2YyFI3Zt1DzFVhJZ8k4SI6A54gtflm7xb427m bCiScsy8Mo/YiG7bRl+FLHEfdNYZRAQjVMIuU+ksElHk5Fqg016YPoYD YamO2t8XCZiQu4C2ZyX3UT2ENxRad4HePbkcY27LwESVJ4P0u2Q+Ag5E BR37zU2DE/gqiLasy8WYZraFlyUd01Y5YfiN6I7cUv6Bgn3dMq8lb5Ar +5A/oUFbm7M=";
+};
